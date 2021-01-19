@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Companies</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<div class="card sm-12">
+    <div class="card-header text-white bg-primary">All companies: <span th:text="(${companies.size()})"></span></div>
+    <div class="card-body">
+        <table class="table table-hover table-bordered table-striped">
+            <tr class="table-primary">
+                <th class="col-sm-5">Employer Identification Number (EIN)</th>
+                <th class="col-sm-5">Company Name</th>
+                <th class="col-sm-2">Action</th>
+            </tr>
+            <tr th:each="company : ${companies}">
+                <td th:text="${company.companyEin}"></td>
+                <td th:text="${company.companyName}"></td>
+                <td><a th:href="@{'/companies/delete/'+${company.companyEin}}"><button class="button btn-danger col-sm-12">Delete</button></a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer col-sm-12" style="text-align:center;">
+        <div class="col-sm-4" style="float:left;"><a href="/companies/random"><button class="button btn-outline-success btn-lg col-sm-12">Random one company</button></a></div>
+        <div class="col-sm-4" style="float:left;"><a onclick="var amount=prompt('Enter amount of random companies: ');window.location.href='/companies/random/'+amount;"><button class="button btn-outline-success btn-lg col-sm-12">Random many companies</button></a></div>
+        <div class="col-sm-4" style="float:left;"><a href="/companies/add"><button class="button btn-outline-success btn-lg col-sm-12">Add company</button></a></div>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+        <span>Damian Osiak<br/>AWSB Cieszyn<br/>Numer albumu: 40843<br/>Informatyka niestacjonarnie 3 semestr<br/><a href="mailto:damian.osiak@student.wsb.edu.pl">damian.osiak@student.wsb.edu.pl</a></span>
+    </div>
+</div>
+</body>
+</html>

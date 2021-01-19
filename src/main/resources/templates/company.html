@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Generated company</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+    <div class="card sm-12">
+        <div class="card-header text-white bg-primary fw-bold">Generated company:</div>
+        <div class="card-body">
+            <table class="table table-hover table-bordered table-striped">
+                <tr class="table-primary">
+                    <th class="col-sm-6">Employer Identification Number (EIN)</th>
+                    <th class="col-sm-6">Company Name</th>
+                </tr>
+                <tr>
+                    <td th:text="${company.companyEin}"></td>
+                    <td th:text="${company.companyName}"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-footer">
+            <a href="/companies/"><button class="button btn-success btn-lg col-sm-12">Back to companies list</button></a>
+        </div>
+        <div class="card-footer" style="text-align:center;">
+            <span>Damian Osiak<br/>AWSB Cieszyn<br/>Numer albumu: 40843<br/>Informatyka niestacjonarnie 3 semestr<br/><a href="mailto:damian.osiak@student.wsb.edu.pl">damian.osiak@student.wsb.edu.pl</a></span>
+        </div>
+    </div>
+    <script>
+        alert("Random company was generated!");
+    </script>
+</body>
+</html>
